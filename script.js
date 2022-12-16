@@ -1,3 +1,7 @@
+var wins = 0;
+var ties = 0;
+var losses = 0;
+
 var options = ["R", "P", "S"];
 
 const playGame = function() {
@@ -6,7 +10,7 @@ const playGame = function() {
     if (!userChoice) {
         return;
     }
-}
+
 
 userChoice = userChoice.toUpperCase();
 
@@ -24,7 +28,24 @@ if (userChoice === computerChoice) {
     (userChoice === "S" && computerChoice === "P")
 ) {
     wins++;
-    window.alert("You won!");
-    
+    window.alert("You won!");  
+} else {
+    losses++;
+    window.alert("Computer wins!");
 }
+
+//stats with line breaks indecated by \n
+window.alert(
+    "Stats:\nWins " + wins + "\nLosses: " + losses + "\nTies: " + ties 
+);
+
+//play again
+var playAgain = window.confirm("Do you want to play again?");
+
+if (playAgain) {
+    playGame();
+    }
+};
+
+playGame();
 
